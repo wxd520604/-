@@ -247,13 +247,14 @@
         if (o < 12) {
             setInterval(function () {
                 h++;
-                shizhen.style.transform = 'rotate(' + (o * 6 + k * 0.1 + h * 0.008333) + 'deg)';
+                shizhen.style.transform = 'rotate(' + (o * 30 + k * 0.1 + h * 0.008333) + 'deg)';
 
             }, 1000)
         } else {
             setInterval(function () {
                 h++;
-                shizhen.style.transform = 'rotate(' + ((o - 12) * 6 + k * 0.1 + h * 0.001666) + 'deg)';
+                shizhen.style.transform = 'rotate(' + ((o - 12) * 30
+ + k * 0.1 + h * 0.001666) + 'deg)';
             }, 1000)
         }
 

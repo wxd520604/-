@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>编程中生出梦想（我的第一个js项目）</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .biaopan {
+            position: relative;
+            width: 600px;
+            height: 600px;
+            margin: 200px auto;
+            background-color: skyblue;
+            border-radius: 200px;
+        }
+
+        .kedu div:nth-child(1) {
+            position: absolute;
+            top: 0;
+            left: 290px;
+            width: 19px;
+            height: 50px;
+            background-color: slateblue;
+        }
+
+        .kedu div:nth-child(2) {
+            position: absolute;
+            top: 7px;
+            left: 440px;
+            width: 19px;
+            height: 50px;
+            background-color: slateblue;
+            transform: rotate(20deg);
+        }
+
+        .kedu div:nth-child(3) {
+            position: absolute;
+            top: 95px;
+            left: 545px;
+            width: 19px;
+            height: 50px;
+            background-color: slateblue;
+            transform: rotate(60deg);
+        }
+
+        .kedu div:nth-child(4) {
+            position: absolute;
+            top: 275px;
+            left: 565px;
+            width: 19px;
+            height: 50px;
+            background-color: slateblue;
+            transform: rotate(90deg);
+        }
+
+        .kedu div:nth-child(5) {
+            position: absolute;
+            top: 455px;
+            left: 545px;
+            width: 19px;
+            height: 50px;
+            background-color: slateblue;
+            transform: rotate(120deg);
+        }
+
+        .kedu div:nth-child(6) {
+            position: absolute;
+            top: 542px;
+            left: 440px;
+            width: 19px;
+            height: 50px;
+            background-color: slateblue;
+            transform: rotate(160deg);
+        }
+
+        .kedu div:nth-child(7) {
+            position: absolute;
+            top: 550px;
+            left: 290px;
+            width: 19px;
+            height: 50px;
+            background-color: slateblue;
+        }
+
+        .kedu div:nth-child(8) {
+            position: absolute;
+            top: 535px;
+            left: 120px;
+            width: 19px;
+            height: 50px;
+            background-color: slateblue;
+            transform: rotate(200deg);
+        }
+
+        .kedu div:nth-child(9) {
+            position: absolute;
+            top: 455px;
+            left: 35px;
+            width: 19px;
+            height: 50px;
+            background-color: slateblue;
+            transform: rotate(240deg);
+        }
+
+        .kedu div:nth-child(10) {
+            position: absolute;
+            top: 275px;
+            left: 15px;
+            width: 19px;
+            height: 50px;
+            background-color: slateblue;
+            transform: rotate(90deg);
+        }
+
+        .kedu div:nth-child(11) {
+            position: absolute;
+            top: 95px;
+            left: 35px;
+            width: 19px;
+            height: 50px;
+            background-color: slateblue;
+            transform: rotate(-60deg);
+        }
+
+        .kedu div:nth-child(12) {
+            position: absolute;
+            top: 7px;
+            left: 140px;
+            width: 19px;
+            height: 50px;
+            background-color: slateblue;
+            transform: rotate(-20deg);
+        }
+
+        .biaozhen {
+            position: relative;
+        }
+
+        .zhou {
+            position: absolute;
+            top: 290px;
+            left: 290px;
+            width: 20px;
+            height: 20px;
+            background-color: tomato;
+        }
+
+        .shizhen {
+            position: absolute;
+            top: 240px;
+            left: 290px;
+            width: 18px;
+            height: 60px;
+            background-color: black;
+            transform-origin: bottom;
+
+        }
+
+        .fenzhen {
+            position: absolute;
+            top: 178px;
+            left: 293px;
+            width: 14px;
+            height: 120px;
+            background-color: black;
+            transform-origin: bottom;
+
+        }
+
+        .miaozhen {
+            position: absolute;
+            top: 120px;
+            left: 294px;
+            width: 8px;
+            height: 180px;
+            background-color: black;
+            transform-origin: bottom;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- 表盘部份 -->
+    <div class="biaopan">
+        <!-- 刻度部分 -->
+        <div class="kedu">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <!-- 表针部分 -->
+        <div class="biaozhen">
+            <div class="zhou"></div>
+            <div class="shizhen"></div>
+            <div class="fenzhen"></div>
+            <div class="miaozhen"></div>
+        </div>
+    </div>
+    <script>
+        var biaozhen = document.querySelector('.biaozhen')
+        var zhou = document.querySelector('.zhou')
+        var shizhen = document.querySelector('.shizhen')
+        var fenzhen = document.querySelector('.fenzhen')
+        var miaozhen = document.querySelector('.miaozhen')
+        var timeNow = new Date();
+        var hour = timeNow.getHours();
+        var minute = timeNow.getMinutes();
+        var second = timeNow.getSeconds();
+
+        var i = second;
+        var k = minute;
+        var o = hour;
+        var q = second;
+
+        // 秒针
+        setInterval(function () {
+            q = second++;
+            miaozhen.style.transform = 'rotate(' + (q * 6) + 'deg) ';
+        }, 1000);
+
+        // 分针
+        var m = 0;
+        setInterval(function () {
+            m++;
+            fenzhen.style.transform = 'rotate(' + (k * 6 + i * 0.1 + m * 0.1) + 'deg)';
+        }, 1000);
+
+
+        // 时针
+        var h = 0;
+        if (o < 12) {
+            setInterval(function () {
+                h++;
+                shizhen.style.transform = 'rotate(' + (o * 6 + k * 0.1 + h * 0.008333) + 'deg)';
+
+            }, 1000)
+        } else {
+            setInterval(function () {
+                h++;
+                shizhen.style.transform = 'rotate(' + ((o - 12) * 6 + k * 0.1 + h * 0.001666) + 'deg)';
+            }, 1000)
+        }
+
+    </script>
+</body>
+
+</html>
